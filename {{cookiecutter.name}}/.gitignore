@@ -1,0 +1,7 @@
+# files
+*.cabal
+hspec.tix
+
+# directories
+/.hpc/
+/.stack-work/

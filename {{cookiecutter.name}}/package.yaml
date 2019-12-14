@@ -1,0 +1,82 @@
+name: {{cookiecutter.name}}
+version: {{cookiecutter.version}}
+category: {{cookiecutter.category}}
+license: {{cookiecutter.license}}
+license-file: LICENSE.txt
+author: {{cookiecutter.author}}
+maintainer: {{cookiecutter.email}}
+copyright: (c) 2019 {{cookiecutter.author}}
+synopsis: {{cookiecutter.description}}
+description: {{cookiecutter.description}}
+homepage: {{cookiecutter.repository}}#readme
+bug-reports: {{cookiecutter.repository}}/issues
+github:  {{cookiecutter.user}}/{{cookiecutter.name}} 
+extra-source-files:
+  - README.md
+  - LICENSE.txt
+dependencies:
+  - base >= 4.7 && < 5
+  - protolude
+ghc-options:
+  - -Wall
+
+library:
+  source-dirs: src
+
+executables:
+  {{cookiecutter.name}}:
+    main: Main.hs
+    source-dirs: bin
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    dependencies:
+    - {{cookiecutter.name}}
+    - optparse-applicative
+
+tests:
+  {{cookiecutter.name}}-lint:
+    main: hlint.hs
+    source-dirs: test
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    dependencies:
+    - {{cookiecutter.name}}
+    - hlint
+    - hspec
+  {{cookiecutter.name}}-spec:
+    main: hspec.hs
+    source-dirs: test
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    dependencies:
+    - {{cookiecutter.name}}
+    - hspec
+  {{cookiecutter.name}}-doctest:
+    main: doctest.hs
+    source-dirs: test
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    dependencies:
+    - {{cookiecutter.name}}
+    - doctest
+    - hspec
+
+benchmarks:
+  {{cookiecutter.name}}-bench:
+    main: bench.hs
+    source-dirs: bench
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    dependencies:
+    - {{cookiecutter.name}}
+    - criterion

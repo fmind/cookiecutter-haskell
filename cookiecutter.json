@@ -1,0 +1,14 @@
+{
+    "name": "project",
+    "user": "anonymous",
+    "email": "anon@local",
+    "author": "anonymous",
+    "module": "{{cookiecutter.name|capitalize}}",
+    "control": "github.com",
+    "category": "Tools",
+    "description": "TODO - Write a description",
+    "repository": "https://{{cookiecutter.control}}/{{cookiecutter.user}}/{{cookiecutter.name}}",
+    "resolver": "lts-14.17",
+    "license": "LGPL-3.0",
+    "version": "0.1.0"
+}
